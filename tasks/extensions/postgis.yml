@@ -7,7 +7,7 @@
     update_cache: yes
     cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
   with_items:
-    - libgeos-c1
+    - libgeos-c1v5 # Xenial hotfix for https://github.com/ANXS/postgresql/issues/183
     - "postgresql-{{postgresql_version}}-postgis-{{postgresql_ext_postgis_version}}"
     - "postgresql-{{postgresql_version}}-postgis-scripts"
   notify:
