@@ -13,6 +13,9 @@
     port: "{{postgresql_port}}"
     state: present
     login_user: "{{postgresql_admin_user}}"
+  # manual patch to avoid ansible-vault decrypted password in the logs
+  # TODO: remove manual patch once https://github.com/ANXS/postgresql/issues/215 is corrected
+  no_log: true
   become: yes
   become_user: "{{postgresql_admin_user}}"
   with_items: "{{postgresql_users}}"
